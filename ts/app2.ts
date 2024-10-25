@@ -2,6 +2,7 @@ import { TThuCung, TPhuKien, TMenuItem, TThucAn, CartItem, HistoryCart } from '.
 import { thucung_arr, menuitem_arr, phukien_arr, thucan_arr } from './data2.js'
 
 
+
 const hien1ThuCung = (pet: TThuCung) => {
     return `
     <div class="sanpham" >
@@ -182,14 +183,14 @@ const updateCart = () => {
 function getCurrentDateTimeInVietnam() {
 
     const now = new Date();
-    const day = now.getDate(); // Ngày (1-31)
-    const month = now.getMonth() + 1; // Tháng (0-11, cộng thêm 1)
-    const year = now.getFullYear(); // Năm (4 chữ số)
+    const day = now.getDate();
+    const month = now.getMonth() + 1; 
+    const year = now.getFullYear(); 
 
-    // Lấy giờ, phút, giây
-    const hours = now.getHours(); // Giờ (0-23)
-    const minutes = now.getMinutes(); // Phút (0-59)
-    const seconds = now.getSeconds(); // Giây (0-59)
+  
+    const hours = now.getHours(); 
+    const minutes = now.getMinutes(); 
+    const seconds = now.getSeconds(); 
 
     return `Ngày ${day}-${month}-${year} | ${hours}h:${minutes}p:${seconds}s`
 }

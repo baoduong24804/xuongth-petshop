@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pexels Image Gallery</title>
+    <link rel="stylesheet" href="/css/c1.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1><a href="index.html">TRANG CHỦ</a></h1>
+        <h1>Pexels Image Gallery</h1>
+
+        <form id="searchForm">
+            <input type="text" id="queryInput" placeholder="Search images..." required>
+            <button id="btn" type="submit">Search</button>
+        </form>
+        <button id="random" type="submit">Ảnh ngẫu nhiên</button>
+        <select name="" id="select" style="margin: 10px;">
+            <option value="5">Chọn số hình</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select>
+
+
+        <div id="imageGallery" class="image-gallery"></div>
+    </div>
+
+    <script type="module">
+        import { showlisthinhanh, showrandom } from './js/hinhanh.js';
+
+
+        const searchForm = document.getElementById("searchForm");
+        const random = document.getElementById("random");
+        const image_max = document.getElementById("select");
+
+        random.addEventListener('click',async () =>{
+            showrandom(image_max.value);
+        })
+
+        searchForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const query = document.getElementById("queryInput").value;
+
+            showlisthinhanh(query,image_max.value);
+        });
+
+
+    </script>
+</body>
+
+</html>

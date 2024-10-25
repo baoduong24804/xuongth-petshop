@@ -43,7 +43,8 @@ const menuitem_arr: TMenuItem[] = [
     {url:"thucung",ten:"THÚ CƯNG"},
     {url:"phukien",ten:"PHỤ KIỆN"},
     {url:"thucan",ten:"THỨC ĂN"},
-    {url:"giohang",ten:"GIỎ HÀNG"}
+    {url:"giohang",ten:"GIỎ HÀNG"},
+    {url:"hinhanh",ten:"ẢNH MIỄN PHÍ"},
 ]
 
 const phukien_arr: TPhuKien[] = [

@@ -19,7 +19,8 @@ const menuitem_arr = [
     { url: "thucung", ten: "THÚ CƯNG" },
     { url: "phukien", ten: "PHỤ KIỆN" },
     { url: "thucan", ten: "THỨC ĂN" },
-    { url: "giohang", ten: "GIỎ HÀNG" }
+    { url: "giohang", ten: "GIỎ HÀNG" },
+    { url: "hinhanh", ten: "ẢNH MIỄN PHÍ" },
 ];
 const phukien_arr = [
     { id: 1, ten: "Khăn ước", gia: 10000, anh: "/images/khanuoc.png", loai: "phukien" },
