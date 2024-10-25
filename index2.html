@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop</title>
+    <link rel="stylesheet" href="/css/c2.css">
+</head>
+
+<body>
+    <div class="container" id="trangchu">
+        <header>
+            <section>
+                <div id="header">
+                    <ul class="menu-list"></ul>
+                </div>
+            </section>
+        </header>
+
+        <main>
+            <section class="body">
+                <div id="thucung">DANH MỤC THÚ CƯNG</div>
+            </section>
+            <section class="listsp">
+                <div class="sort">
+
+                    <select class="option" name="option" id="">
+                        <option value="-1">Sắp xếp theo</option>
+                        <option value="0">Giá giảm dần</option>
+                        <option value="1">Giá tăng dần</option>
+                    </select>
+
+                </div>
+                <div class="data"></div>
+            </section>
+            <section class="body">
+                <div id="phukien">DANH MỤC PHỤ KIỆN</div>
+            </section>
+            <section class="listpk">
+                <div class="sort">
+
+                    <select class="option" name="option" id="">
+                        <option value="-1">Sắp xếp theo</option>
+                        <option value="0">Giá giảm dần</option>
+                        <option value="1">Giá tăng dần</option>
+                    </select>
+
+                </div>
+                <div class="data"></div>
+            </section>
+            <section class="body">
+                <div id="thucan">DANH MỤC THỨC ĂN</div>
+            </section>
+            <section class="listta">
+                <div class="sort">
+
+                    <select class="option" name="option" id="">
+                        <option value="-1">Sắp xếp theo</option>
+                        <option value="0">Giá giảm dần</option>
+                        <option value="1">Giá tăng dần</option>
+                    </select>
+
+                </div>
+                <div class="data"></div>
+            </section>
+        </main>
+
+        <footer style="background-color: antiquewhite;">
+            <div>
+                Duong Thai Bao
+            </div>
+        </footer>
+    </div>
+    <script type="module">
+        import { showlistthucung, showlistmenuitem, showlistphukien, showlistthucan, showtest, giohangtb, sort_thucung_arr } from './js/app2.js';
+        document.querySelector(".menu-list").innerHTML = showlistmenuitem();
+        document.querySelector(".listsp .data").innerHTML = showlistthucung(false,0);
+        document.querySelector(".listpk .data").innerHTML = showlistphukien(false,0);
+        document.querySelector(".listta .data").innerHTML = showlistthucan(false,0);
+
+
+        document.querySelector("#header > ul > a:nth-child(5)").addEventListener('click', (event) => {
+            event.preventDefault();
+
+            window.location.href = '/giohang.html';
+
+        });
+        const giohang = document.querySelector("#header > ul > a:nth-child(5) > li");
+        giohang.textContent = giohangtb();
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                showtest(event);
+                giohang.textContent = giohangtb();
+            });
+        });
+
+        document.querySelector('.listsp .sort .option').addEventListener('change',(event)=>{
+            document.querySelector(".listsp .data").innerHTML = showlistthucung(true,event.target.value)
+        })
+        document.querySelector('.listta .sort .option').addEventListener('change',(event)=>{
+            document.querySelector(".listta .data").innerHTML = showlistthucan(true,event.target.value)
+        })
+        document.querySelector('.listpk .sort .option').addEventListener('change',(event)=>{
+            document.querySelector(".listpk .data").innerHTML = showlistphukien(true,event.target.value)
+        })
+
+    </script>
+</body>
+
+</html>

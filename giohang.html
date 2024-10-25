@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <div class="cart-container">
+        <h1><a href="index2.html">TRANG CHỦ</a></h1>
+        <h2>GIỎ HÀNG</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tạm tính</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <hr>
+        <div class="cart-summary">
+            <h3>Cộng giỏ hàng</h3>
+            <p>Giao hàng: <span>Đồng giá</span></p>
+            <p>Tổng: <span id="tonggia"></span></p>
+            <button class="checkout-btn">THANH TOÁN</button>
+        </div>
+        <hr>
+        <h1>LỊCH SỬ MUA HÀNG</h1>
+        <div class="data">
+            
+        </div>
+        
+    </div>
+
+
+    <script type="module">
+        import { showlistcart, updateTamTinh,getTong,xoagiohang,thanhtoan,showlistlichsu } from './js/app2.js';
+        document.querySelector("body > div > table > tbody").innerHTML = showlistcart();
+        const btnxoa = document.querySelectorAll('.remove-item');
+        btnxoa.forEach(el => {
+  
+            
+            el.addEventListener('click', (event) => {
+                
+                const btnel = event.target;
+                const productel = btnel.closest('tr');
+                //console.log(productel);
+                const loai = productel.getAttribute('data-type');
+                const id = productel.getAttribute('data-item-id');
+                xoagiohang(id,loai);
+                //document.querySelector("body > div > table > tbody").innerHTML = showlistcart();
+            })
+        })
+        document.addEventListener('click', (event) => {
+            if (event.target.classList.contains('soluong-input')) {
+                const inputElement = event.target;
+                const soluongmoi = parseInt(inputElement.value);
+                
+                
+                //console.log(soluongmoi);
+                
+
+                const productElement = inputElement.closest('tr');
+                //console.log(productElement);
+                const loai = productElement.getAttribute('data-type');
+                const itemId = productElement.getAttribute('data-item-id');
+                //console.log(loai);
+                
+
+                const tamtinhElement = productElement.querySelector('.tamtinh');
+                //console.log('Tạm tính:', tamtinhElement.textContent);
+
+
+                updateTamTinh(itemId, soluongmoi, loai);
+            }
+        });
+        document.querySelector('.checkout-btn').addEventListener('click',()=>{
+            thanhtoan();
+        })
+        document.querySelector("body > div > div.data").innerHTML = showlistlichsu();
+        getTong();
+    </script>
+</body>
+
+</html>
