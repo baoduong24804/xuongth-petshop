@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetShop</title>
-    <link rel="stylesheet" href="/css/c2.css">
+    <link rel="stylesheet" href="css/c2.css">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
         </footer>
     </div>
     <script type="module">
-        import { showlistthucung, showlistmenuitem, showlistphukien, showlistthucan, showtest, giohangtb, sort_thucung_arr } from './js/app2.js';
+        import { showlistthucung, showlistmenuitem, showlistphukien, showlistthucan, showtest, giohangtb, sort_thucung_arr } from 'js/app2.js';
         document.querySelector(".menu-list").innerHTML = showlistmenuitem();
         document.querySelector(".listsp .data").innerHTML = showlistthucung(false,0);
         document.querySelector(".listpk .data").innerHTML = showlistphukien(false,0);

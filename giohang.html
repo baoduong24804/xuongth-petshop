@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
 
 
     <script type="module">
-        import { showlistcart, updateTamTinh,getTong,xoagiohang,thanhtoan,showlistlichsu } from './js/app2.js';
+        import { showlistcart, updateTamTinh,getTong,xoagiohang,thanhtoan,showlistlichsu } from 'js/app2.js';
         document.querySelector("body > div > table > tbody").innerHTML = showlistcart();
         const btnxoa = document.querySelectorAll('.remove-item');
         btnxoa.forEach(el => {
